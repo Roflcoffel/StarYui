@@ -1,1 +1,2 @@
-# StarYui yo WAT UP
+# StarYui Test
+sfml cross-platform test project
