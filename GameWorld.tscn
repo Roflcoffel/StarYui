@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GameWorld.gd" type="Script" id=1]
+[ext_resource path="res://Grid.gd" type="Script" id=2]
+[ext_resource path="res://stone_set.tres" type="TileSet" id=3]
+[ext_resource path="res://object_set.tres" type="TileSet" id=4]
+[ext_resource path="res://Art/player.png" type="Texture" id=5]
+[ext_resource path="res://Player.gd" type="Script" id=6]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Grid" type="TileMap" parent="."]
+mode = 1
+cell_size = Vector2( 132, 60 )
+format = 1
+script = ExtResource( 2 )
+
+[node name="YSort" type="YSort" parent="Grid"]
+
+[node name="Ground_Tiles" type="TileMap" parent="Grid/YSort"]
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 132, 60 )
+format = 1
+
+[node name="Object_Tiles" type="TileMap" parent="Grid/YSort"]
+position = Vector2( 0, 10 )
+mode = 1
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 132, 60 )
+format = 1
+
+[node name="Player" type="Sprite" parent="Grid/YSort"]
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="Grid/YSort/Player"]
+current = true
